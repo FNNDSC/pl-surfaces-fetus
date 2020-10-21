@@ -2,26 +2,27 @@
 
 ## Table of Contents
 
-   * [pl-surfaces-fetus](#pl-surfaces-fetus)
-      * [Abstract](#abstract)
-      * [Description](#description)
-        * [Publications](#publications)
-      * [Usage](#usage)
-         * [Required Arguments](#required-arguments)
-         * [Optional Output Options](#optional-output-options)
-         * [Output](#output)
-           * [Files](#files)
-           * [Visualization](#visualization)
-      * [Example](#example)
-      * [TODO](#todo)
-           * [Comments](#comments)
-      * [License](#license)
+* [Abstract](#abstract)
+* [Description](#description)
+* [Publications](#publications)
+* [Usage](#usage)
+    * [Required Arguments](#required-arguments)
+    * [Optional Output Options](#optional-output-options)
+    * [Output](#output)
+        * [Files](#files)
+        * [Visualization](#visualization)
+* [Example](#example)
+* [TODO](#todo)
+    * [Comments](#comments)
+* [License](#license)
 
 ## Abstract
 
 Extract surfaces (`.obj`) for the *subplate zone*
 from pre-segmented fetal brain MRI volume (`.mnc`) using
 **CIVET**'s **marching-cubes**/`sphere_mesh` and **ASP**/`surface_fit`.
+
+![brain-view white-matter surface mesh](examples/spectral.png)
 
 ## Description
 
@@ -69,7 +70,9 @@ during Fetal Development." *Cerebral Cortex*. https://doi.org/10.1093/cercor/bha
 ## Usage
 
 ```bash
-docker run --rm -v <INPUTDIR>:/incoming <OUTPUTDIR>:/outgoing surfaces_fetus --side <LEFT|RIGHT> --age <N> /incoming /outgoing
+docker run -u $(id -u) --rm \
+    -v <INPUTDIR>:/incoming -v <OUTPUTDIR>:/outgoing \
+    surfaces_fetus --side <LEFT|RIGHT> --age <N> /incoming /outgoing
 ```
 
 ### Required Arguments
@@ -118,14 +121,14 @@ Output File Name                        | Purpose
 `intermediates/wm_mask.mnc`             | subplate outer mask
 `intermediates/iz_mask.mnc`             | subplate inner mask
 `intermediates/iz_chamfer.mnc`          | distance map to inner surface
+`qc/wm_cubes.log`                       | surface extraction log, preprocessing and `surface_fit`
+`qc/iz_fit.log`                         | fitting `surface_fit` log
 `qc/wm_dist.txt`                        | marching-cubes distance error
 `qc/wm_smth.txt`                        | marching-cubes smoothness quality
 `qc/wm_area.txt`                        | marching-cubes triangle areas quality
 `qc/iz_dist.txt`                        | fitting distance error
 `qc/iz_smth.txt`                        | fitting smoothness quality
 `qc/iz_area.txt`                        | fitting triangle areas quality
-`qc/wm_cubes.log`                       | surface extraction log, preprocessing and `surface_fit`
-`qc/iz_fit.log`                         | fitting `surface_fit` log
 `sp_thickness_tlink.txt`                | `-tlink` thickness between surfaces
 `qc/sp_thickness_tnear.txt`             | `-tnear` thickness between surfaces
 `qc/tlink_minus_tnear.txt`              | vertex-wise difference between `-tlink` and `-tnear` thicknesses
@@ -135,7 +138,6 @@ Output File Name                        | Purpose
 `qc/distortion_angles.txt`              | distortion angles between 0-pi
 
 #### Visualization
-
 
 [MNI Display](http://www.bic.mni.mcgill.ca/software/Display/Display.html)
 should be used to view `*.mnc` files. It supports overlay of `*.obj` files.
@@ -161,12 +163,12 @@ I found some public stuff here:
 - http://neuroimaging.ch/feta
 
 ```bash
-docker run --rm -v $PWD/examples/brain:/incoming:ro $PWD/out:/outgoing:rw \
+docker run -u $(id -u) --rm \
+    -v $PWD/examples/brain:/incoming:ro $PWD/out:/outgoing:rw \
+    fnndsc/pl-surfaces-fetus surfaces_fetus \
     --age 31.29 --side left  \
     --qc --keep-intermediate \
     /incoming /outgoing
-
-tree out
 ```
 
 ## TODO
