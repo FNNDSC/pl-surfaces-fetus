@@ -12,6 +12,7 @@
         * [Files](#files)
         * [Visualization](#visualization)
 * [Example](#example)
+* [Build](#build)
 * [TODO](#todo)
     * [Comments](#comments)
 * [License](#license)
@@ -169,6 +170,25 @@ docker run -u $(id -u) --rm \
     --age 31.29 --side left  \
     --qc --keep-intermediate \
     /incoming /outgoing
+```
+
+## Build
+
+Most simply,
+
+```bash
+docker build -t pl-surfaces-fetus .
+```
+
+Or cross-compile a multi-platform manifest list, and push to Dockerhub
+
+```bash
+docker run --rm --privileged aptman/qus -s -- -p ppc64le
+docker buildx create --name moc_builder --use
+docker buildx build -t fnndsc/pl-surfaces-fetus --platform linux/amd64,linux/ppc64le .
+# optional clean up
+docker buildx rm
+docker run --rm --privileged aptman/qus -- -r
 ```
 
 ## TODO
