@@ -27,7 +27,9 @@ from pre-segmented fetal brain MRI volume (`.mnc`) using
 
 ## Description
 
-[OHBM 2020 Poster](https://fnndsc.childrens.harvard.edu/conferences/2020/OHBM/Jennings/Jennings_Zhang_OHBM_2020_Subplace_Surfaces.pdf)
+- [OHBM 2020 Poster](https://fnndsc.childrens.harvard.edu/conferences/2020/OHBM/Jennings/Jennings_Zhang_OHBM_2020_Subplace_Surfaces.pdf)
+- [Another One](https://fnndsc.childrens.harvard.edu/conferences/2020/OHBM/Jennings/Lana_Vasung_OHBM_2020_Thickness_GE.pdf)
+
 
 Given an input of a segmented volume (`*.mnc`) for fetal brain MRI between 20-33
 weeks of gestational age (GA), this pipeline will produce surface meshes for

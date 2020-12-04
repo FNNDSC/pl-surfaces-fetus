@@ -130,13 +130,13 @@ class SurfacesFetusWrapper(ChrisApp):
         Define the CLI arguments accepted by this plugin app.
         Use self.add_argument to specify a new app argument.
         """
-        self.add_argument('--age', dest='age', type=float, optional=False, required=True,
+        self.add_argument('--age', dest='age', type=float, optional=False,
                           help='gestational age estimate in weeks')
-        self.add_argument('--side', dest='side', type=str, optional=False, required=True,
+        self.add_argument('--side', dest='side', type=str, optional=False,
                           help='brain hemisphere [left, right]')
-        self.add_argument('--keep-intermediate', dest='keep', optional=True, type=bool, default=False,
+        self.add_argument('--keep-intermediate', dest='keep', type=bool, default=False, optional=True,
                           help='keep intermediate files (e.g. *mask.mnc, *chanfer.mnc)')
-        self.add_argument('--qc', dest='qc', optional=True, type=bool, default=False,
+        self.add_argument('--qc', dest='qc', type=bool, default=False, optional=True,
                           help='save surface_fit logs and produce vertex-wise quality check files')
 
     def run(self, options):
