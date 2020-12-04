@@ -92,7 +92,7 @@ class SurfacesFetusWrapper(ChrisApp):
     AUTHORS                 = 'Jennings Zhang <Jennings.Zhang@childrens.harvard.edu>'
     SELFPATH                = '/usr/local/bin'
     SELFEXEC                = 'surfaces_fetus'
-    EXECSHELL               = 'python'
+    EXECSHELL               = 'python3'
     TITLE                   = 'Surface extraction for fetal brain MRI'
     CATEGORY                = ''
     TYPE                    = 'ds'
