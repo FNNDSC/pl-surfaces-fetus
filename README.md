@@ -70,6 +70,8 @@ Simon K Warfield, Henry A Feldman, Ali Gholipour, P Ellen Grant (2019).
 "Spatiotemporal Differences in the Regional Cortical Plate and Subplate Volume Growth
 during Fetal Development." *Cerebral Cortex*. https://doi.org/10.1093/cercor/bhaa033
 
+Lana Vasung, Chenying Zhao, Matthew Barkovich, Caitlin K Rollins, Jennings Zhang, Claude Lepage, Teddy Corcoran, Clemente Velasco-Annis, Hyuk Jin Yun, Kiho Im, Simon Keith Warfield, Alan Charles Evans, Hao Huang, Ali Gholipour, Patricia Ellen Grant, Association between Quantitative MR Markers of Cortical Evolving Organization and Gene Expression during Human Prenatal Brain Development, Cerebral Cortex, Volume 31, Issue 8, August 2021, Pages 3610–3621, https://doi.org/10.1093/cercor/bhab035
+
 ## Usage
 
 ```bash
