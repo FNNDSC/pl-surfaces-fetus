@@ -1,3 +1,5 @@
+# Deprecated: Please see https://github.com/FNNDSC/Fetal_Brain_MRI_Surface_Extraction_Pipeline
+
 # pl-surfaces-fetus
 
 ## Table of Contents
